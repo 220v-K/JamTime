@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NewJamView: View {
+    @Binding var isNewJamViewPresented: Bool
     @State var jamNameText: String = ""
     @State var locationText: String = ""
     
@@ -18,7 +19,14 @@ struct NewJamView: View {
             HStack {
                 Spacer()
                 
-                Spacer().frame(width:44, height: 44)
+                Button {
+                    isNewJamViewPresented = false
+                } label: {
+                    Image(systemName: "xmark").font(.system(size: 20))
+                        .foregroundColor(.black)
+                        .frame(width:44, height: 44)
+                }
+
             }
             
             HStack {
@@ -64,7 +72,7 @@ struct NewJamView: View {
             }.padding(.horizontal, 38)
             
             Spacer()
-        }
+        }.navigationBarTitle("", displayMode: .automatic).toolbar(.hidden)
     }
     
     private func dayButton(day: String) -> some View {
@@ -97,11 +105,5 @@ struct NewJamView: View {
                         .fill(Color.lightGray)
                 )
         }
-    }
-}
-
-struct NewJamView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewJamView()
     }
 }
