@@ -35,3 +35,7 @@ extension String {
     }
 }
 
+extension Color {
+    static let lightGray = Color(#colorLiteral(red: 0.8797428608, green: 0.8797428012, blue: 0.8797428608, alpha: 1))
+    static let middleGray = Color(#colorLiteral(red: 0.6862745098, green: 0.6862745098, blue: 0.6862745098, alpha: 1))
+}
